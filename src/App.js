@@ -1,10 +1,12 @@
 import React from 'react';
+
+import Pad from './containers/Pad/Pad';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <p>Hiiii</p>
+      <Pad />
     </div>
   );
 }
