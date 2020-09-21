@@ -1,0 +1,39 @@
+button{
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    border:none;
+}
+
+/* button:focus{
+    outline: none;
+    border:none;
+   
+} */
+
+button:active { 
+    transform: scale(0.96); 
+    /* Scaling button to 0.98 to its original size */ 
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.40); 
+    background-color: peachpuff;
+    /* Lowering the shadow */ 
+}
+
+
+.active { 
+    animation-name: activate;
+    animation-duration: 100ms;
+}
+@keyframes activate{
+    50%{
+        transform: scale(0.96); 
+        box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.40); 
+        background-color: peachpuff;
+    }
+    100%{
+        transform: scale(1); 
+        box-shadow: none; 
+    }
+}
