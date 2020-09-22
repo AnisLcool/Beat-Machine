@@ -67,39 +67,66 @@ export const samples1 = [
 
 export const samples2 = [
     {
+        url: "https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3",
         id: 1, 
-        url: "https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3"
+        keycode: samples1[0].keycode,
+        label: samples1[0].label,
+        desc: 'Chord 1'
     },
     {
         id: 2, 
-        url: "https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3"
+        url: "https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3",
+        keycode: samples1[1].keycode,
+        label: samples1[1].label,
+        desc: 'Chord 2'
     },
     {
         id: 3, 
-        url: "https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3"
+        url: "https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3",
+        keycode: samples1[2].keycode,
+        label: samples1[2].label,
+        desc: 'Chord 3'
     },
     {
         id: 4, 
-        url: "https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3"
+        url: "https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3",
+        keycode: samples1[3].keycode,
+        label: samples1[3].label,
+        desc: 'Shaker'
     },
     {
         id: 5, 
-        url: "https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3"
+        url: "https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3",
+        keycode: samples1[4].keycode,
+        label: samples1[4].label,
+        desc: 'Open HH'
     },
     {
         id: 6, 
-        url: "https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3"
+        url: "https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3",
+        keycode: samples1[5].keycode,
+        label: samples1[5].label,
+        desc: 'Closed HH'
     },
     {
         id: 7, 
-        url: "https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3"
+        url: "https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3",
+        keycode: samples1[6].keycode,
+        label: samples1[6].label,
+        desc: 'Punchy Kick'
     },
     {
         id: 8, 
-        url: "https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3"
+        url: "https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3",
+        keycode: samples1[7].keycode,
+        label: samples1[7].label,
+        desc: 'Side Stick'
     },
     {
         id: 9, 
-        url: "https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
+        url: "https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3",
+        keycode: samples1[8].keycode,
+        label: samples1[8].label,
+        desc: 'Snare'
     },
 ]

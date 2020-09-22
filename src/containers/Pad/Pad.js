@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Buttons from '../../components/Buttons/Buttons';
+import Settings from '../../components/Settings/Settings';
 import "./Pad.css";
 // import { samples2 } from '../../sounds/samples';
 // import {samples1, samples2} from "./../../sounds/samples";
@@ -7,6 +8,10 @@ import "./Pad.css";
 class Pad extends Component {
     state = {
         samples: [],
+        power: true,
+        bank: false,
+        soundDesc : "",
+        volume: "50",
     }
 
 
@@ -21,34 +26,75 @@ class Pad extends Component {
             console.log("import error: ", err)
         })
     }
+    
 
-
-    keyUpHandler = (e, samples) => {
+    keyPressed = (eventType, e, samples) => {
         const sampleObj = samples.find(el => el.label === e.key.toUpperCase());
         if (sampleObj) {
             const el = document.getElementById(`btn${sampleObj.id}`);
-            el.classList.remove("active");
+            if(eventType === "keyUp"){
+                el.classList.remove("active");
+            }else{
+                el.classList.add("active");
+                el.click();
+            }
+        }
+    }
+    keyUpHandler = (e, samples) => {
+        if(this.state.power){
+            this.keyPressed("keyUp", e, samples)
         }
     }
     keyDownHandler = (e, samples) => {
-        const sampleObj = samples.find(el => el.label === e.key.toUpperCase());
-        if (sampleObj) {
-            const el = document.getElementById(`btn${sampleObj.id}`);
-            el.classList.add("active");
-            el.click();
+        if(this.state.power){
+            this.keyPressed("keyDown", e, samples)
         }
 
     }
 
     playSound = (url, desc) => {
         // console.log("clicked : ", desc)
+       if(this.state.power){
+        this.setState({soundDesc: desc});
         const sound = new Audio(url);
+        sound.volume = parseFloat(this.state.volume) / 100;
         sound.play();
+       }
+    }
+
+    toggleSwitch = type => {
+        if(type === "power"){
+            this.setState(prevState => {
+                return {
+                    power : !prevState.power,
+                    soundDesc: ""
+                }
+            })
+            
+        }else if(type === "bank"){
+            import("./../../sounds/samples").then(data => {
+                
+                this.setState(prevState => {
+                    return {
+                        bank : !prevState.bank,
+                        samples: this.state.bank ? data.samples1 : data.samples2
+                    }
+                })
+            }).catch(err => {
+                console.log("import error: ", err)
+            })
+            
+        }
+    }
+
+    setVolumeHandler = (e) =>{
+        this.setState({volume: e.target.value})
     }
     render() {
         return (
             <div className="Pad">
                 <Buttons forwardedRef={this.setBtnRef} samples={this.state.samples} playSound={this.playSound} />
+                <Settings toggleSwitch={this.toggleSwitch} power={this.state.power} bank={this.state.bank} soundDesc={this.state.soundDesc} setVolumeHandler={this.setVolumeHandler} volume={this.state.volume}/>
             </div>
         );
     }
