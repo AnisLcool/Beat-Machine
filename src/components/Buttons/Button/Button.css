@@ -6,13 +6,6 @@ button{
     outline: none;
     border:none;
 }
-
-/* button:focus{
-    outline: none;
-    border:none;
-   
-} */
-
 button:active { 
     transform: scale(0.96); 
     /* Scaling button to 0.98 to its original size */ 
@@ -20,8 +13,6 @@ button:active {
     background-color: peachpuff;
     /* Lowering the shadow */ 
 }
-
-
 .active { 
     animation-name: activate;
     animation-duration: 100ms;

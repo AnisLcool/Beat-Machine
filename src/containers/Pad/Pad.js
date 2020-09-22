@@ -26,6 +26,15 @@ class Pad extends Component {
             console.log("import error: ", err)
         })
     }
+
+    // shouldComponentUpdate(nextProps , nextState){
+    //     console.log("should component update");
+    //     console.log("next state : ", nextState.power)
+    //     if(!nextState.power){
+    //         return false;
+    //     }
+    //     return true;
+    // }
     
 
     keyPressed = (eventType, e, samples) => {
@@ -91,9 +100,11 @@ class Pad extends Component {
         this.setState({volume: e.target.value})
     }
     render() {
+        // console.log("pad render");
+        // console.log("=".repeat(20))
         return (
             <div className="Pad">
-                <Buttons forwardedRef={this.setBtnRef} samples={this.state.samples} playSound={this.playSound} />
+                <Buttons samples={this.state.samples} playSound={this.playSound} />
                 <Settings toggleSwitch={this.toggleSwitch} power={this.state.power} bank={this.state.bank} soundDesc={this.state.soundDesc} setVolumeHandler={this.setVolumeHandler} volume={this.state.volume}/>
             </div>
         );

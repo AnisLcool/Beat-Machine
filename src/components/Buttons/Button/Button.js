@@ -1,12 +1,18 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import "./Button.css";
 
 function Button(props) {
-    // when i click on this , it will play an audio sample
-   
+    // console.log("btn render");
+    // console.log("=".repeat(20))   
     return (
     <button id={"btn" + props.id} onClick={(event) => props.playSound(props.url, props.desc, event)}>{props.label}</button>
     );
 }
 
-export default Button;
+export default React.memo(Button, (prevProps, nextProps) => {
+    if(prevProps.url !== nextProps.url){
+        return false;
+    }else{
+        return true;
+    }
+});

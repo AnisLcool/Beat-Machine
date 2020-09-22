@@ -2,6 +2,8 @@ import React from 'react';
 import "./Settings.css";
 
 function Settings(props) {
+    // console.log("settings render");
+    // console.log("=".repeat(20))
     return (
         <div className="Settings">
             <div className="Power">
